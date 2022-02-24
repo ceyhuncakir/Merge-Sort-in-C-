@@ -25,10 +25,10 @@ std::vector<T> merge_sort(std::vector<T> array_01, std::vector<T> array_02) {
       // we reserve voor de output vector de size van array_02_head en de sorted list size
       output.reserve(array_02_head.size() + sorted.size());
 
-      output.push_back(array_02_head[0]);
+      output.emplace_back(array_02_head[0]);
 
       for(auto e : sorted) {
-        output.push_back(e);
+        output.emplace_back(e);
       }
 
       // returning output
@@ -47,10 +47,10 @@ std::vector<T> merge_sort(std::vector<T> array_01, std::vector<T> array_02) {
       // we reserve voor de output vector de size van array_01_head en de sorted list size
       output.reserve(array_01_head.size() + sorted.size());
 
-      output.push_back(array_01_head[0]);
+      output.emplace_back(array_01_head[0]);
 
       for(auto e : sorted) {
-        output.push_back(e);
+        output.emplace_back(e);
       }
 
       // returning output
@@ -81,7 +81,7 @@ std::vector<T> merge_sort(std::vector<T> array_01, std::vector<T> array_02) {
       output_02.reserve(array_02_head.size() + sorted_02.size());
 
       if(array_01_head < array_02_head) {
-        output_01.push_back(array_01_head[0]);
+        output_01.emplace_back(array_01_head[0]);
 
         for(auto e : sorted_01) {
           output_01.push_back(e);
@@ -89,10 +89,10 @@ std::vector<T> merge_sort(std::vector<T> array_01, std::vector<T> array_02) {
 
         return output_01;
       } else {
-        output_02.push_back(array_02_head[0]);
+        output_02.emplace_back(array_02_head[0]);
 
         for(auto e : sorted_02) {
-          output_02.push_back(e);
+          output_02.emplace_back(e);
         }
 
         return output_02;
@@ -114,7 +114,7 @@ std::vector<T> recursive_merge_sort(std::vector<T> data) {
 }
 
 int main() {
-  std::vector<int> data = {43, 23, 123, 421, 213, 232, 531, 213, 421, 213, 232, 531, 213, 421, 213};
+  std::vector<int> data = {5, 4, 3, 2, 1, 0, 10, 23, 52, 12, 32, 42, 12, 53, 21, 21};
   std::vector<int> sorted_array;
 
   auto start = high_resolution_clock::now();

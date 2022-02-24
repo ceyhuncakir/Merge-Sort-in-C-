@@ -1,8 +1,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <chrono>
 
-// vragen stellen over vector ++ vector
+using namespace std::chrono;
 
 template <typename T>
 std::vector<T> merge_sort(std::vector<T> array_01, std::vector<T> array_02) {
@@ -113,14 +114,20 @@ std::vector<T> recursive_merge_sort(std::vector<T> data) {
 }
 
 int main() {
-  std::vector<int> data = {43, 23, 123, 421, 213, 232, 531, 213, 421, 213, 232, 531, 213, 421, 213, 232, 531, 213};
+  std::vector<int> data = {43, 23, 123, 421, 213, 232, 531, 213, 421, 213, 232, 531, 213, 421, 213};
   std::vector<int> sorted_array;
 
+  auto start = high_resolution_clock::now();
   sorted_array = recursive_merge_sort(data);
+  auto stop = high_resolution_clock::now();
+
+  auto duration = duration_cast<microseconds>(stop - start);
 
   for(auto e : sorted_array) {
     std::cout << e << " | ";
   }
+
+  std::cout << "Time taken by function: " << duration.count() << " microseconds" << std::endl;
 
   return 0;
 }

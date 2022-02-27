@@ -114,7 +114,7 @@ std::vector<T> recursive_merge_sort(std::vector<T> data) {
 }
 
 int main() {
-  std::vector<int> data = {5, 4, 3, 2, 1, 0, 10, 23, 52, 12, 32, 42, 12, 53, 21, 21};
+  std::vector<int> data = {75, 83, 40, 24, 42, 63, 23, 22, 34, 58, 65, 100, 30, 57, 90, 14, 46};
   std::vector<int> sorted_array;
 
   auto start = high_resolution_clock::now();
@@ -127,7 +127,7 @@ int main() {
     std::cout << e << " | ";
   }
 
-  std::cout << "Time taken by function: " << duration.count() << " microseconds" << std::endl;
+  std::cout << "Time taken by merge sort algoritme: " << duration.count() << " microseconds" << std::endl;
 
   return 0;
 }
